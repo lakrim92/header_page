@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="page">
+	<div class="top">
+		<h1>sowg</h1>
+		<button>Contact</button>
+	</div><img class="desert" src="https://images.unsplash.com/photo-1466071624063-c556307cb4d2?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzNDk2OTU2MA&amp;ixlib=rb-1.2.1&amp;q=85" />
+	<h1 id="text">Freedom.</h1>
+	<div class="bottom">
+		<h5>@sowg</h5>
+		<div class="sites">
+			<a href="https://codepen.io/sowg" target="_blank"> CodePen </a>
+			<a href="https://dribbble.com/sowg" target="_blank"> Dribble </a>
+			<a href="https://dev.to/sowg" target="_blank"> Dev.to </a><a href="https://github.com/sowgk" target="_blank"> Github </a>
+			</div>
+	</div>
+	<div id="down">
+		<figure class="fig fig-1"><img class="pic" src="https://images.unsplash.com/photo-1502828290467-2fe0466ad74f?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzNDk4MTU1Ng&amp;ixlib=rb-1.2.1&amp;q=85" />
+			<figcaption>A desert image</figcaption>
+		</figure>
+		<figure class="fig fig-2"><img class="pic" src="https://images.unsplash.com/photo-1481489712339-f9c0734be5d5?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzNDk4MTU1Ng&amp;ixlib=rb-1.2.1&amp;q=85" />
+			<figcaption>Another desert image</figcaption>
+		</figure>
+		<figure class="fig">
+			<figcaption class="cap">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, labore nostrum. Aut magni quas explicabo dignissimos, dolores velit, quam illo placeat inventore impedit quo omnis molestiae veritatis ea, fuga porro. </figcaption>
+		</figure>
+	</div>
+	<div class="cover"></div>
+</div>
+<script>
+    addEventListener('load', e => {
+    let boxes = gsap.utils.toArray('.fig')
+    boxes.forEach(function (box) {
+        let img = box.querySelector('img'),
+            imgCap = box.querySelector('figcaption')
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: box,
+                // markers: true,
+                start: 'top bottom',
+                end: 'top center',
+                scrub: 1,
+                scroller: '#page'
+            }
+        })
+        tl.fromTo([img, imgCap, '.cap'], {
+            scale: 0.5,
+            opacity: 0
+        }, {
+            scale: 1,
+            opacity: 1
+        })
+    })
+})
+</script>
+</body>
+</html>
